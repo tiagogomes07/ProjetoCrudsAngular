@@ -1,0 +1,66 @@
+<h1>Cadastro de Usuário</h1>
+
+<div class="container-fluid">
+  <div>
+    <form>
+      <div class=""><h4>Dados Identificação</h4></div>
+      <div class="row">
+        <!--<One way data bind>-->
+        <div class="col-sm-2">
+          <label for="" class="form-label">Id</label>
+          <input type="text" class="form-control" placeholder="" value="{{user.id}}">
+        </div>
+        <!--< Oneway - Property bind [], também é one way>-->
+        <div class="col-sm-4">
+          <label for="" class="form-label">Nome</label>
+          <input name="nome" type="text" class="form-control" placeholder="" [value]="user.nome">
+        </div>
+        <!--< Oneway - ngModel, precisa ter a property name defininda eo formModule instalado no componente ou no seu modulo superior>-->
+        <div class="col-sm-6">
+          <label for="" class="form-label">Sobrenome</label>
+          <input name="sobrenome" type="text" class="form-control" placeholder="" [ngModel]="user.sobrenome">
+        </div>
+      </div>
+
+      <div class="row">
+        <!--< Two Way databind ngmodule, precisa ter o name no campo + eventbind() >-->
+        <div class="col-sm-6">
+          <label for="" class="visually-hidden">CPF</label>
+          <input name="cpf" type="text" class="form-control" placeholder="CPF"
+                 [ngModel]="user.cpf"
+                 (ngModelChange)="user.cpf = $event ">
+        </div>
+        <!--< Two Way databind ngmodule+ event bind, com uma escrita mais sucinta >-->
+        <div class="col-sm-6">
+          <label for="" class="visually-hidden">RG</label>
+          <input name="rg" type="text" class="form-control"
+                 [(ngModel)]="user.rg">
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-sm-4">
+          <label for="" class="visually-hidden">Email</label>
+          <input type="text" class="form-control" placeholder="fulano@email.com.br">
+        </div>
+        <div class="col-sm-4">
+          <label for="" class="visually-hidden">Telefone-Celular</label>
+          <input type="text" class="form-control" placeholder="11-1111-1111">
+        </div>
+
+        <div class="col-sm-4">
+          <label for="" class="visually-hidden">Telefone-Residencial</label>
+          <input type="text" class="form-control" placeholder="11-1111-1111">
+        </div>
+
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-12">
+          <button class="btn btn-success col-sm-3">Confirm</button>
+        </div>
+      </div>
+      <br />
+    </form>
+  </div>
+</div>
