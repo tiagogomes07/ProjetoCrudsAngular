@@ -1,21 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
-import { EnderecoModel } from './endereco.modelo'
+import { EnderecoModel } from '../model/endereco.modelo'
 
 @Component({
   selector: 'app-endereco',
-  templateUrl: './endereco.component.html',
-  styleUrls: ['./endereco.component.css']
+  templateUrl: './endereco-list.component.html',
+ 
 })
-export class EnderecoComponent implements OnInit {
+export class EnderecoListComponent implements OnInit {
 
   endereco: EnderecoModel;
 
   constructor() { }
 
   ngOnInit() {
-
     this.endereco = new EnderecoModel("Paulista",1400,"05400-100","São Paulo","UF")
   }
 
