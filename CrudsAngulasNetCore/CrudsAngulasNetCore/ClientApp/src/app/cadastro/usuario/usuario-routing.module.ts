@@ -6,6 +6,7 @@ import { FormsModule }   from '@angular/forms';
 //minhas cosias
 import { UsuarioListComponent } from './usuario-list.component/usuario-list.component';
 import { UsuarioCreateComponent } from './usuario-create.component/usuario-create.component';
+import { UsuarioDeleteComponent } from './usuario-delete.component/usuario-delete.component';
 
 @NgModule({
   imports: [
@@ -18,9 +19,16 @@ import { UsuarioCreateComponent } from './usuario-create.component/usuario-creat
       {
         path:'usuario/create',
         component: UsuarioCreateComponent
+      },
+      {
+        path:'usuario/delete',
+        component: UsuarioDeleteComponent
       }
     ])
   ],
-  declarations: [UsuarioListComponent, UsuarioCreateComponent]
+  declarations: [
+    UsuarioListComponent, 
+    UsuarioCreateComponent, 
+    UsuarioDeleteComponent]
 })
 export class UsuarioRoutingModule { }

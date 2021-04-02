@@ -8,8 +8,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CommonModule } from '@angular/common'
 import { UsuarioRoutingModule } from './cadastro/usuario/usuario-routing.module';
-import { EnderecoRoutingModule} './cadastro/endereco/endereco-routing.module';
-
+import { EnderecoRoutingModule} from './cadastro/endereco/endereco-routing.module';
  
 @NgModule({
   declarations: [
