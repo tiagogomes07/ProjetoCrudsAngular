@@ -10,15 +10,17 @@
           <th scope="col">SobreNome</th>
           <th scope="col">Email</th>
           <th scope="col">Telefone</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let u of users">
+        <tr *ngFor="let u of users" [routerLink]="['/usuario/delete', u.id, u.nome]" >
           <td>{{u.id}}</td>
           <td>{{u.nome}}</td>
           <td>{{u.sobrenome}}</td>
           <td>1111</td>
           <td>@</td>
+          <td>link</td>
         </tr>
       </tbody>
     </table>

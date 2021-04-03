@@ -8,6 +8,8 @@ import { UsuarioListComponent } from './usuario-list.component/usuario-list.comp
 import { UsuarioCreateComponent } from './usuario-create.component/usuario-create.component';
 import { UsuarioDeleteComponent } from './usuario-delete.component/usuario-delete.component';
 
+import { CadastroUsuarioService } from '../../services/cadastro-usuario.service'
+
 @NgModule({
   imports: [
     CommonModule,
@@ -20,8 +22,12 @@ import { UsuarioDeleteComponent } from './usuario-delete.component/usuario-delet
         path:'usuario/create',
         component: UsuarioCreateComponent
       },
+      // {
+      //   path:'usuario/delete',
+      //   component: UsuarioDeleteComponent
+      // },
       {
-        path:'usuario/delete',
+        path:'usuario/delete/:id/:nome',
         component: UsuarioDeleteComponent
       }
     ])
@@ -29,6 +35,7 @@ import { UsuarioDeleteComponent } from './usuario-delete.component/usuario-delet
   declarations: [
     UsuarioListComponent, 
     UsuarioCreateComponent, 
-    UsuarioDeleteComponent]
+    UsuarioDeleteComponent],
+    providers: [CadastroUsuarioService]
 })
 export class UsuarioRoutingModule { }
