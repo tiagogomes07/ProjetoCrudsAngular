@@ -1,6 +1,7 @@
 import { Component, OnInit  } from '@angular/core';
-import { UsuarioModel } from '../model/usuario.modelo'
+import { Usuario } from '../model/usuario.modelo'
 import { CadastroUsuarioService } from '../../../services/cadastro-usuario.service'
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-usuario',
@@ -8,15 +9,26 @@ import { CadastroUsuarioService } from '../../../services/cadastro-usuario.servi
 })
 export class UsuarioCreateComponent implements OnInit {
 
-  user: UsuarioModel;
+  user: Usuario;
+  id: string;
   
-  constructor(private usuarioService : CadastroUsuarioService) { }
+  constructor(private usuarioService : CadastroUsuarioService,
+    private route: ActivatedRoute
+    ) {
+
+      this.id = this.route.snapshot.paramMap.get('id')
+      console.log('id',this.id)
+     }
 
   ngOnInit() {   
-   this.user = new UsuarioModel(null,null,null,null,null)
+   this.user = new Usuario(null,null,null,null,null,null,null)
   }
 
   createUser(): void{
+    this.usuarioService.AddOrEditUsuario(this.user)
+  }
+
+  editUser(): void {
     this.usuarioService.AddOrEditUsuario(this.user)
   }
 

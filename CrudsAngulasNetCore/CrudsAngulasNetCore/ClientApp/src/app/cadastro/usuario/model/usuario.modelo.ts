@@ -1,11 +1,13 @@
-export class UsuarioModel {
+export class Usuario {
 
   constructor(
-    public id: number | null,
-    public nome: string | null,
-    public sobrenome: string | null,
-    public cpf?: number | null,
-    public rg?: number | null,
+    public Id: number | null,
+    public Nome: string | null,
+    public SobreNome: string | null,
+    public Email: string | null,
+    public Telefone: string | null,
+    public Cpf: string | null,
+    public Rg: string | null,
   ) {}
 
 }

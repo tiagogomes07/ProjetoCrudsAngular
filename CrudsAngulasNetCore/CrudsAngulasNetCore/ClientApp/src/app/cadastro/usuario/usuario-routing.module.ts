@@ -22,10 +22,10 @@ import { CadastroUsuarioService } from '../../services/cadastro-usuario.service'
         path:'usuario/create',
         component: UsuarioCreateComponent
       },
-      // {
-      //   path:'usuario/delete',
-      //   component: UsuarioDeleteComponent
-      // },
+      {
+        path:'usuario/create/:id/:nome',
+        component: UsuarioCreateComponent
+      },
       {
         path:'usuario/delete/:id/:nome',
         component: UsuarioDeleteComponent

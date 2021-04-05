@@ -1,5 +1,5 @@
 import { Component, OnInit,  } from '@angular/core';
-import { UsuarioModel } from '../model/usuario.modelo'
+import { Usuario } from '../model/usuario.modelo'
 import { CadastroUsuarioService } from '../../../services/cadastro-usuario.service'
 
 @Component({
@@ -8,8 +8,8 @@ import { CadastroUsuarioService } from '../../../services/cadastro-usuario.servi
 })
 export class UsuarioListComponent implements OnInit {
 
-  user: UsuarioModel;
-  users: UsuarioModel[];
+  user: Usuario;
+  users: Usuario[];
 
   constructor(private usuarioService : CadastroUsuarioService) { }
 
@@ -21,4 +21,5 @@ export class UsuarioListComponent implements OnInit {
       },
     )
   }
+
 }

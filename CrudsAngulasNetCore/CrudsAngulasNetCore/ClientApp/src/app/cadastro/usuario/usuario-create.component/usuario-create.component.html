@@ -6,20 +6,36 @@
       <div class=""><h4>Dados Identificação</h4></div>
       <div class="row">
         <!--<One way data bind>-->
-        <div class="col-sm-2">
+        <!-- <div class="col-sm-2">
           <label for="" class="form-label">Id</label>
           <input type="text" class="form-control" placeholder="" value="{{user.id}}">
-        </div>
+        </div> -->
         <!--< Oneway - Property bind [], também é one way>-->
-        <div class="col-sm-4">
+        <!-- <div class="col-sm-4">
           <label for="" class="form-label">Nome</label>
           <input name="nome" type="text" class="form-control" placeholder="" [value]="user.nome">
-        </div>
+        </div> -->
         <!--< Oneway - ngModel, precisa ter a property name defininda eo formModule instalado no componente ou no seu modulo superior>-->
-        <div class="col-sm-6">
+        <!-- <div class="col-sm-6">
           <label for="" class="form-label">Sobrenome</label>
           <input name="sobrenome" type="text" class="form-control" placeholder="" [ngModel]="user.sobrenome">
+        </div> -->
+
+        <div class="col-sm-2">
+          <label for="" class="form-label">Id</label>
+          <input name="Id" type="text" class="form-control" placeholder="" [(ngModel)]="user.Id" disabled >
         </div>
+
+        <div class="col-sm-4">
+          <label for="" class="form-label">Nome</label>
+          <input name="Nome" type="text" class="form-control" placeholder="" [(ngModel)]="user.Nome">
+        </div>
+
+        <div class="col-sm-6">
+          <label for="" class="form-label">Sobrenome</label>
+          <input name="SobreNome" type="text" class="form-control" placeholder="" [(ngModel)]="user.SobreNome">
+        </div>
+
       </div>
 
       <div class="row">
@@ -28,36 +44,36 @@
           <label for="" class="visually-hidden">CPF</label>
           <input name="cpf" type="text" class="form-control" placeholder="CPF"
                  [ngModel]="user.cpf"
-                 (ngModelChange)="user.cpf = $event ">
+                 (ngModelChange)="user.Cpf = $event ">
         </div>
         <!--< Two Way databind ngmodule+ event bind, com uma escrita mais sucinta >-->
         <div class="col-sm-6">
           <label for="" class="visually-hidden">RG</label>
           <input name="rg" type="text" class="form-control"
-                 [(ngModel)]="user.rg">
+                 [(ngModel)]="user.Rg">
         </div>
       </div>
       <br />
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <label for="" class="visually-hidden">Email</label>
-          <input type="text" class="form-control" placeholder="fulano@email.com.br">
+          <input name="email" type="text" class="form-control" [(ngModel)]="user.Email" >
         </div>
-        <div class="col-sm-4">
-          <label for="" class="visually-hidden">Telefone-Celular</label>
-          <input type="text" class="form-control" placeholder="11-1111-1111">
+        <div class="col-sm-6">
+          <label for="" class="visually-hidden">Telefone</label>
+          <input  name="telefone" type="text" class="form-control" [(ngModel)]="user.Telefone"  >
         </div>
-
-        <div class="col-sm-4">
-          <label for="" class="visually-hidden">Telefone-Residencial</label>
-          <input type="text" class="form-control" placeholder="11-1111-1111">
-        </div>
-
       </div>
       <br />
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12" >
           <button (click)="createUser()" class="btn btn-success col-sm-3">Confirm</button>
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-lg-12" >
+          <button (click)="editUser()" class="btn btn-primary col-sm-3">Edit</button>
         </div>
       </div>
       <br />
