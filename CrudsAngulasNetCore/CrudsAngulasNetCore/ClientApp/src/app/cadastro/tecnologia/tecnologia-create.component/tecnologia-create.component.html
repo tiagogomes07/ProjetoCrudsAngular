@@ -1,0 +1,45 @@
+<h1>Cadastro de Tecnologia</h1>
+
+<div class="container-fluid">
+  <div>
+    <form>
+      <div class=""><h4>Informações</h4></div>
+      <div class="row">
+        <div class="col-sm-6">
+          <label for="" class="form-label">Nome</label>
+          <input name="nome" type="text" class="form-control" 
+          [(ngModel)]="tecnologia.Nome">
+        </div>
+        <div class="col-sm-6">
+          <label for="" class="form-label">Apelido</label>
+          <input name="apelido" type="text" class="form-control" 
+          [(ngModel)]="tecnologia.Apelido">
+        </div>
+
+      </div>
+
+      <div class="row">
+        <!--< Two Way databind ngmodule, precisa ter o name no campo + eventbind() >-->
+        <div class="col-sm-12">
+          <label for="" class="visually-hidden">Utilidade</label>
+          <input name="utilidade" type="text" class="form-control" 
+           [(ngModel)]="tecnologia.Utilidade">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12" >
+          <button (click)="createTecnologia()" class="btn btn-success col-sm-3">Confirm</button>
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-lg-12" >
+          <button (click)="editTecnologia()" class="btn btn-primary col-sm-3">Edit</button>
+        </div>
+      </div>
+
+      <br />
+    </form>
+  </div>
+</div>
