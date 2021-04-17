@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { EnderecoModel } from '../model/endereco.modelo'
+import { EnderecoModel } from '../model/endereco.modelo';
 
 @Component({
   selector: 'app-endereco',
   templateUrl: './endereco-list.component.html',
- 
+
 })
 export class EnderecoListComponent implements OnInit {
 
@@ -13,7 +13,7 @@ export class EnderecoListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.endereco = new EnderecoModel("Paulista",1400,"05400-100","São Paulo","UF")
+    this.endereco = new EnderecoModel('Paulista', 1400, '05400-100', 'São Paulo', 'UF');
   }
 
 }

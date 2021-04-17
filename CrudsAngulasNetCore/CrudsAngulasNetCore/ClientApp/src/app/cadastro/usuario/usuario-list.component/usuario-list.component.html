@@ -20,10 +20,11 @@
           <td>{{u.email}}</td>
           <td>{{u.telefone}}</td>
           <td> 
-            <button 
-              [routerLink]="['/usuario/create', u.id, u.nome]"  
+            <a 
+              [routerLink]="['/usuario/create']"
+              [state]="{data:u}"
               class="btn btn-primary">Editar
-            </button> 
+            </a> 
         </td>
           <td> 
               <button 

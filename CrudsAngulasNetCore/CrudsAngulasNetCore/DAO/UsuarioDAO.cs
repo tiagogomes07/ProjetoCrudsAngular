@@ -58,9 +58,29 @@ namespace CrudsAngulasNetCore.Dao
 
         public void EditUsuario(Usuario usuario)
         {
-            using (NpgsqlConnection conexao = new NpgsqlConnection(strconnection))
+            using (NpgsqlConnection db = new NpgsqlConnection(strconnection))
             {
-                conexao.Update(usuario);
+                db.Open();
+                var pam = new NpgsqlParameter[]
+                {
+                    new NpgsqlParameter { ParameterName="Id",        DbType=DbType.Int32,  Value=usuario.Id},
+                    new NpgsqlParameter { ParameterName="Nome",      DbType=DbType.String, Value=usuario.Nome},
+                    new NpgsqlParameter { ParameterName="SobreNome", DbType=DbType.String, Value=usuario.SobreNome},
+                    new NpgsqlParameter { ParameterName="Cpf",       DbType=DbType.String, Value=usuario.Cpf},
+                    new NpgsqlParameter { ParameterName="Rg",        DbType=DbType.String, Value=usuario.Rg},
+                    new NpgsqlParameter { ParameterName="Email",     DbType=DbType.String, Value=usuario.Email},
+                    new NpgsqlParameter { ParameterName="Telefone",  DbType=DbType.String, Value=usuario.Telefone},
+                };
+
+                using (var cmd = new NpgsqlCommand(
+                    "UPDATE \"Cruds\".usuario " +
+                    "SET nome=@Nome, sobrenome=@SobreNome, cpf=@Cpf, rg=@Rg,email=@Email,telefone=@Telefone " +
+                    "WHERE Id=@Id;", db))
+                {
+                    cmd.Parameters.AddRange(pam);
+                    cmd.ExecuteNonQuery();
+                }
+                db.Close();
             }
         }
 
@@ -74,7 +94,7 @@ namespace CrudsAngulasNetCore.Dao
                     new NpgsqlParameter { ParameterName="Id",      DbType=DbType.Int32, Value=idUsuario},
                 };
 
-                using (var cmd = new NpgsqlCommand("DELETE FROM \"Cruds\".usuario WHERE id = 0;", db))
+                using (var cmd = new NpgsqlCommand("DELETE FROM \"Cruds\".usuario WHERE id = @Id;", db))
                 {
                     cmd.Parameters.AddRange(pam);
                     cmd.ExecuteNonQuery();

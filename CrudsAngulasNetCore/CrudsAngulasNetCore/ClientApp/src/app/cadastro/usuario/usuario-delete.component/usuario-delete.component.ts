@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CadastroUsuarioService } from '../../../services/cadastro-usuario.service'
-import {Location} from '@angular/common';
+import { CadastroUsuarioService } from '../../../services/cadastro-usuario.service';
+import { Location} from '@angular/common';
 
 @Component({
   selector: 'app-usuario-delete',
@@ -11,28 +11,28 @@ export class UsuarioDeleteComponent implements OnInit {
 
   public id: string;
   public nome: string;
-  constructor(private route: ActivatedRoute, private usuarioService : CadastroUsuarioService, private location : Location) { }
+  constructor(private route: ActivatedRoute, private usuarioService: CadastroUsuarioService, private location: Location) { }
 
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('id')
-    this.nome = this.route.snapshot.paramMap.get('nome')
-    console.log(this.id, this.nome)
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.nome = this.route.snapshot.paramMap.get('nome');
+    console.log(this.id, this.nome);
   }
 
-  ConfirmDelete(){
-    console.log("ConfirmDelete ini",this.id)
+  ConfirmDelete() {
+    console.log('ConfirmDelete ini', this.id);
     this.usuarioService.DeleteUsuario(this.id)
-    .subscribe( 
-      resp => { 
-        
-        alert("Deletado com sucesso")
-        
-        setTimeout( ()=> {this.location.back(); } , 1500);
+    .subscribe(
+      resp => {
 
-        
+        alert('Deletado com sucesso');
+
+        setTimeout( () => {this.location.back(); } , 1500);
+
+
       } ,
-      err =>  { alert(`Houve um erro, ${err} `)}      
-    )
+      err =>  { alert(`Houve um erro, ${err} `); }
+    );
   }
 
 }

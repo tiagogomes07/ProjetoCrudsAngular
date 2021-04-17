@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule} from '@angular/router';
-import { CommonModule } from '@angular/common'
+import { CommonModule } from '@angular/common';
 import { FormsModule }   from '@angular/forms';
 import { EnderecoListComponent } from './endereco-list.component/endereco-list.component';
 
@@ -9,7 +9,7 @@ import { EnderecoListComponent } from './endereco-list.component/endereco-list.c
     CommonModule,
     FormsModule,
     RouterModule.forChild([{
-        path:'endereco',
+        path: 'endereco',
         component: EnderecoListComponent
       }
     ])

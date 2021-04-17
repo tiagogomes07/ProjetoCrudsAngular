@@ -22,6 +22,7 @@ namespace CrudsAngulasNetCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<UsuarioDAO>();
+            services.AddTransient<TecnologiaDAO>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             
